@@ -1,0 +1,31 @@
+.container {
+    display: grid; /*grid|inline-grid*/
+
+    /*grid-template-columns: 300px 300px 300px;*/ /*px,%,stb*/
+    /*grid-template-columns: repeat(3, 300px);*/
+    /*grid-template-columns: 50% 50%;*/ /*ablak 100% annyiba felosztja amekkorát megadunk
+    /*grid-template-columns: 1fr 1fr 2fr;*/ /*arányosan felosztja*/
+    grid-template-columns: [first] 500px [others] repeat(3, 1fr) [end] 100px; /*[cimkék] hivatkozni tudunk rá*/
+    /*500px 1fr 1fr 1fr*/
+    grid-column-gap: 20px;
+
+    grid-template-rows: [first-row] 250px [content] auto; /*px,%,stb*/ /*auto: benne lévő tartalomra formázza magát*/
+    grid-row-gap: 30px;
+    
+
+}
+
+.item {
+    border: 1px red solid;
+    box-sizing: border-box;
+}
+
+.item-header-right {
+    grid-column-start: others; 
+    /*melyik oszlopbanban kezdődik és melyikben végződik  SZÁM NEM TARTOZIK BELE!!! EGGYEL NAGYOBBAT ÍRJ*/
+    grid-column-end: span end;
+
+    grid-row-start: 1;
+    /*melyik sorban kezdődik és melyikben végződik SZÁM NEM TARTOZIK BELE!!! EGGYEL NAGYOBBAT ÍRJ*/
+    grid-row-end: 1;
+}
